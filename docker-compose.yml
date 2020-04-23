@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  dev:
+    image: node:14.0.0-stretch-slim
+    volumes:
+      - package_web_server_sandbox_node_modules:/usr/src/server/node_modules
+      - .:/usr/src/server
+    working_dir: /usr/src/server
+    command: bash -c "npm install --prefer-offline --no-audit && npm run dev"
+    ports:
+      - 9229:9229
+      - 3000:3000
+volumes:
+  package_web_server_sandbox_node_modules:
+    external: true
