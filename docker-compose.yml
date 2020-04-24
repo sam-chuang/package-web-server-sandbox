@@ -4,9 +4,9 @@ services:
   dev:
     image: node:14.0.0-stretch-slim
     volumes:
-      - package_web_server_sandbox_node_modules:/usr/src/server/node_modules
-      - .:/usr/src/server
-    working_dir: /usr/src/server
+      - package_web_server_sandbox_node_modules:/usr/src/web/node_modules
+      - .:/usr/src/web
+    working_dir: /usr/src/web
     command: bash -c "npm install --prefer-offline --no-audit && npm run dev"
     ports:
       - 9229:9229
