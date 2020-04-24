@@ -29,9 +29,9 @@ const setContentDispositionHeader = (filename, response) =>response.setHeader("C
 
 const archive = (path, response) => {
   let archive = archiver('tar', {
-    zlib: { level: 9 }
   })
-  archive.directory(path, 'package')
   archive.pipe(response)
+
+  archive.directory(path, 'package')
   archive.finalize()
 }
